@@ -1,14 +1,14 @@
-#summary Description of minimal multi-project [Qt] environment with [CMake] build scripts.
+#summary Description of minimal multi-project Qt environment with CMake build scripts.
 
 = Introduction =
 
-Qt comes with the QMake tool for handling cross platform building. 
+[Qt] comes with the *QMake* tool for handling cross platform building. 
 
-Qmake is specialized for use with Qt and has built-in features for working with your Qt meta object compiler.
+*Qmake* is specialized for use with [Qt] and has built-in features for working with your [Qt] meta object compiler.
 
-However, there are other build systems available such as autotools, SCons and CMake. All tools have some pros and cons, and choice is a matter of taste and additional requirements.
+However, there are other build systems available such as _autotools_, _SCons_ and [CMake]. All tools have some pros and cons, and choice is a matter of taste and additional requirements.
 
-Here is some 'pros' for CMake build system:
+Here is some 'pros' for [CMake] build system:
  * is really portable
  * uses native build and develop tools for the target platform
  * can easily generate a script for a complex set of interrelated projects
@@ -19,20 +19,109 @@ Here is some 'pros' for CMake build system:
 
 Directory structure:
  * project_directory
- ** rel_view
- ** unit_tests
+  * rel_view
+  * unit_tests
+  * build
 
-The 'rel_view' project is built using intermediate library.
+The *'rel_view'* project is a main part and should be built using intermediate library.
 
-The 'unit_tests' project is built using linking whith 'rel_view' intermediate library.
+The *'unit_tests'* project is built by linking with 'rel_view' intermediate library.
 
-[CMake] generate a lot of additional files and auxiliary subdirectories, so it would be good to place all of them into separate 'build' directory.
+[CMake] generate a lot of additional files and auxiliary subdirectories, so it would be good to place all of them into separate *'build'* directory.
 
 
-= Top !CMakeLists.txt file =
+= Top CMakeLists.txt file =
 
-= Subdirectory rel_view !CMakeLists.txt file =
+{{{
 
-= Subdirectory unit_tests !CMakeLists.txt file =
+cmake_minimum_required (VERSION 2.8)
+
+project (RELVIEW)
+
+enable_testing()
+
+add_subdirectory (rel_view ${CMAKE_CURRENT_BINARY_DIR}/rel_view)
+add_subdirectory (unit_tests ${CMAKE_CURRENT_BINARY_DIR}/unit_tests)
+
+}}}
+
+= Subdirectory rel_view CMakeLists.txt file =
+
+{{{
+find_package (Qt4 REQUIRED QtCore QtGui QtXml)
+
+set (EXENAME rel_view)
+set (LIBNAME rel_view_lib)
+
+set (HEADERS 
+        mainwindow.h
+    )
+
+set (SOURCES 
+        mainwindow.cpp
+    )
+
+set (FORMS
+        mainwindow.ui
+    )
+    
+qt4_wrap_cpp (MOC_SOURCES ${HEADERS})
+qt4_wrap_ui (FORMS_HEADERS ${FORMS})
+
+include (${QT_USE_FILE})
+
+add_definitions (${QT_DEFINITIONS})
+
+add_library (${LIBNAME} ${SOURCES} ${MOC_SOURCES} ${FORMS_HEADERS}) 
+
+add_executable (${EXENAME} WIN32 main.cpp)
+
+target_link_libraries (${EXENAME} ${LIBNAME} ${QT_LIBRARIES} ${QT_QTMAIN_LIBRARY})
+
+include_directories (. ${CMAKE_CURRENT_BINARY_DIR})
+}}}
+
+
+= Subdirectory unit_tests CMakeLists.txt file =
+
+{{{
+find_package (Qt4 REQUIRED QtCore QtGui QtXml QtTest)
+
+set (LIBNAME rel_view_lib)
+set (LIBDIR rel_view)
+set (EXENAME unit_tests)
+
+set (HEADERS 
+        test_mainwindow.h
+    )
+
+set (SOURCES 
+        test_mainwindow.cpp
+    )
+
+include_directories (. ${RELVIEW_SOURCE_DIR}/${LIBDIR})
+
+link_directories (${RELVIEW_BINARY_DIR}/${LIBDIR})
+
+qt4_wrap_cpp (MOC_SOURCES ${HEADERS})
+
+include (${QT_USE_FILE})
+
+add_definitions (${QT_DEFINITIONS})
+
+add_executable (${EXENAME} main.cpp ${SOURCES} ${MOC_SOURCES})
+
+target_link_libraries (${EXENAME} ${LIBNAME} ${QT_LIBRARIES})
+
+add_test(cpp ${EXENAME} WORKING_DIRECTORY ${EXECUTABLE_OUTPUT_PATH})
+
+}}}
 
 = [CMake] call details =
+
+Here is 'gensln.bat' script:
+<code lang="bat">
+cd build
+cmake -G "Visual Studio 9 2008" ..
+cd ..
+</code>
