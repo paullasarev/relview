@@ -1,0 +1,2 @@
+http://en.wikipedia.org/wiki/CMake :
+ CMake is a cross-platform, open-source system for managing the build process of software (...) using a compiler-independent method.
