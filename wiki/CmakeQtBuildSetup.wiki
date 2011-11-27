@@ -125,3 +125,7 @@ cd build
 cmake -G "Visual Studio 9 2008" ..
 cd ..
 </code>
+
+Notes:
+ * [CMake] generate all scripts and build infrastructure at the _*current*_ directory, so 'cd' to target and call them
+ * currently, [Qt] binary library for Windows available only for 'MS Visual Studio 2008', so script explicitly choose  appropriate cmake 'generator'
