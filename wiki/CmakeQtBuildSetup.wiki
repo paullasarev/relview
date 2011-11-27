@@ -50,7 +50,7 @@ add_subdirectory (unit_tests ${CMAKE_CURRENT_BINARY_DIR}/unit_tests)
 
 Notes:
  * 'add_subdirectory' instruct [CMake] to recurse specified subdirectory, and the second argument is need to place all build infrastructure in subdirs of 'build' directory
- * 'enable_testing' prepares possibility of [Qt#QTest] usage
+ * 'enable_testing' prepares possibility of [Qt#QTest QTest] usage
 
 = Subdirectory rel_view CMakeLists.txt file =
 
