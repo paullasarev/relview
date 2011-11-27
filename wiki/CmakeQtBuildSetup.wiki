@@ -1,0 +1,38 @@
+#summary Description of minimal multi-project [Qt] environment with [CMake] build scripts.
+
+= Introduction =
+
+Qt comes with the QMake tool for handling cross platform building. 
+
+Qmake is specialized for use with Qt and has built-in features for working with your Qt meta object compiler.
+
+However, there are other build systems available such as autotools, SCons and CMake. All tools have some pros and cons, and choice is a matter of taste and additional requirements.
+
+Here is some 'pros' for CMake build system:
+ * is really portable
+ * uses native build and develop tools for the target platform
+ * can easily generate a script for a complex set of interrelated projects
+ * unlike qmake, does not hide the additional steps of the project construction and makes it easy to look at the intermediate project files
+ * work fine with native IDE such as MS Visual Studio
+
+= Example project =
+
+Directory structure:
+ * project_directory
+ ** rel_view
+ ** unit_tests
+
+The 'rel_view' project is built using intermediate library.
+
+The 'unit_tests' project is built using linking whith 'rel_view' intermediate library.
+
+[CMake] generate a lot of additional files and auxiliary subdirectories, so it would be good to place all of them into separate 'build' directory.
+
+
+= Top !CMakeLists.txt file =
+
+= Subdirectory rel_view !CMakeLists.txt file =
+
+= Subdirectory unit_tests !CMakeLists.txt file =
+
+= [CMake] call details =
