@@ -12,3 +12,6 @@ QTest:
  * http://doc.qt.nokia.com/4.7-snapshot/qtestlib-manual.html
  * http://doc.qt.nokia.com/4.7-snapshot/qtestlib-tutorial1.html
  * http://doc.qt.nokia.com/4.7-snapshot/qtest.html
+
+Qt Visual Studio Addin:
+ * http://qt.nokia.com/downloads/visual-studio-add-in
