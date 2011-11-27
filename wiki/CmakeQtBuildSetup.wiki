@@ -29,6 +29,8 @@ The *'unit_tests'* project is built by linking with 'rel_view' intermediate libr
 
 [CMake] generate a lot of additional files and auxiliary subdirectories, so it would be good to place all of them into separate *'build'* directory.
 
+The entire project may be downloaded as [http://cpp-names.googlecode.com/files/QtCmakeMimimalProject.zip QtCmakeMimimalProject.zip]
+
 
 = Top CMakeLists.txt file =
 
