@@ -1,19 +1,19 @@
+==What is CMake?==
 http://en.wikipedia.org/wiki/CMake :
  CMake is a cross-platform, open-source system for managing the build process of software (...) using a compiler-independent method.
 
-
-Some links about CMake;
+==Useful links==
  * [http://www.cmake.org/cmake/project/about.html CMake home page]
  * [http://www.cmake.org/Wiki/CMake CMake Wiki]
  * [http://www.cmake.org/cmake/help/documentation.html Official documentation]
  * [http://www.cmake.org/cmake/help/examples.html Official examples]
  
-CMake and [Qt]:
+==CMake and [Qt]==
  * http://developer.qt.nokia.com/quarterly/view/using_cmake_to_build_qt_projects
  * http://www.cmake.org/cmake/help/cmake-2-8-docs.html#module:FindQt4
  * http://www.devexp.ru/2010/01/cmake-i-qt/
 
-CTest
+==CTest==
  * http://www.cmake.org/Wiki/CTest:FAQ
  * http://www.cmake.org/Wiki/CMake_Testing_With_CTest
  * http://www.cmake.org/Wiki/CMake_Scripting_Of_CTest
