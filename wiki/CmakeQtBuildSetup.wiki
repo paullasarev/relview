@@ -4,7 +4,7 @@
 
 [Qt] comes with the *QMake* tool for handling cross platform building. 
 
-*Qmake* is specialized for use with [Qt] and has built-in features for working with your [Qt] meta object compiler.
+*Qmake* is specialized for use with [Qt] and has built-in features for working with [Qt] tools, such as a meta object compiler and UI designer.
 
 However, there are other build systems available such as _autotools_, _SCons_ and _[CMake]_. All tools have some pros and cons, and choice is a matter of taste and additional requirements.
 
