@@ -6,7 +6,7 @@
 
 *Qmake* is specialized for use with [Qt] and has built-in features for working with your [Qt] meta object compiler.
 
-However, there are other build systems available such as _autotools_, _SCons_ and [CMake]. All tools have some pros and cons, and choice is a matter of taste and additional requirements.
+However, there are other build systems available such as _autotools_, _SCons_ and _[CMake]_. All tools have some pros and cons, and choice is a matter of taste and additional requirements.
 
 Here is some 'pros' for [CMake] build system:
  * is really portable
