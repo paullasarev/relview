@@ -11,7 +11,7 @@ However, there are other build systems available such as _autotools_, _SCons_ an
 Here is some 'pros' for [CMake] build system:
  * is really portable
  * uses native build and develop tools for the target platform
- * can easily generate a script for a complex set of interrelated projects
+ * can easily generate script for complex set of interrelated projects
  * unlike qmake, does not hide the additional steps of the project construction and makes it easy to look at the intermediate project files
  * work fine with native IDE such as MS Visual Studio
 
