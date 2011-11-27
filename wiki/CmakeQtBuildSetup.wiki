@@ -14,6 +14,7 @@ Here is some 'pros' for [CMake] build system:
  * can easily generate script for complex set of interrelated projects
  * unlike qmake, does not hide the additional steps of the project construction and makes it easy to look at the intermediate project files
  * work fine with native IDE such as MS Visual Studio
+ * can be used in heterogeneous environment, not locked to the [Qt] world
 
 = Example project =
 
